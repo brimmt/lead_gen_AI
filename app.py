@@ -69,7 +69,11 @@ app.include_router(instagram.router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],  # frontend URL
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+        "https://lead-gen-ai-frontend-omega.vercel.app/"
+    ],  # frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

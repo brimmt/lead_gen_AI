@@ -22,12 +22,12 @@ from fastapi.responses import JSONResponse
 
 
 load_dotenv()
-from routes import bermuda        #To add new route add: from routes import "new route name"
-from routes import gpr
-from routes import twitter_x
-from routes import reddit
-from routes import youtube
-from routes import instagram
+#from routes import bermuda        #To add new route add: from routes import "new route name"
+#from routes import gpr
+#from routes import twitter_x
+#from routes import reddit
+#from routes import youtube
+#from routes import instagram
 
 PROVIDER = os.getenv("SEARCH_PROVIDER","serpapi").lower()
 #SERPAPI_KEY = os.getenv("SERPAPI_KEY")
@@ -57,12 +57,12 @@ def _serp_key() -> str:
 
 
 app = FastAPI(title="LeadSearch API", version="0.1.0")  #Update this whenever a new route is added
-app.include_router(bermuda.router)
-app.include_router(gpr.router)
-app.include_router(twitter_x.router)
-app.include_router(reddit.router)
-app.include_router(youtube.router)
-app.include_router(instagram.router)
+#app.include_router(bermuda.router)
+#app.include_router(gpr.router)
+#app.include_router(twitter_x.router)
+#app.include_router(reddit.router)
+#app.include_router(youtube.router)
+#app.include_router(instagram.router)
 
 # TATI ALWAYS DO THE APP. CALL AFTER APP= FASTAPI smart girl 
 

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .drawer-enter { transform: translateX(100%); }
+        .drawer-enter-active { transform: translateX(0); transition: transform 0.3s ease-out; }
+        .drawer-exit { transform: translateX(0); }
+        .drawer-exit-active { transform: translateX(100%); transition: transform 0.3s ease-in; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                            Dashboard
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">TB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Welcome to your workspace</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Choose from the tools below to get started with lead generation, proposals, and account management.
+            </p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <!-- LeadGen Card -->
+            <div id="leadgen-card" class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <!-- Magnifying Glass Icon -->
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">LeadGen</h3>
+                    <p class="text-gray-600">Find and generate qualified leads for your business</p>
+                </div>
+            </div>
+
+            <!-- Proposal AI Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <!-- Document Icon -->
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Proposal AI</h3>
+                    <p class="text-gray-600">Create compelling proposals with AI assistance</p>
+                </div>
+            </div>
+
+            <!-- Settings Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <!-- Gear Icon -->
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Settings</h3>
+                    <p class="text-gray-600">Manage your account and preferences</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Drawer Overlay -->
+    <div id="drawer-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <!-- Drawer Panel -->
+        <div id="drawer-panel" class="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl drawer-enter">
+            <div class="flex flex-col h-full">
+                <!-- Drawer Header -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900">Lead Generation</h3>
+                    <button id="close-drawer" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Drawer Content -->
+                <div class="flex-1 overflow-y-auto p-6">
+                    <!-- Form -->
+                    <form id="leadgen-form" class="space-y-6">
+                        <div>
+                            <label for="industry" class="block text-sm font-medium text-gray-700 mb-2">Industry</label>
+                            <input type="text" id="industry" name="industry" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                placeholder="e.g., Technology, Healthcare">
+                        </div>
+
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <input type="text" id="location" name="location" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                placeholder="e.g., San Francisco, CA">
+                        </div>
+
+                        <div>
+                            <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Role <span class="text-gray-400">(optional)</span></label>
+                            <input type="text" id="role" name="role"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                placeholder="e.g., CEO, Marketing Manager">
+                        </div>
+
+                        <div>
+                            <label for="limit" class="block text-sm font-medium text-gray-700 mb-2">Limit</label>
+                            <input type="number" id="limit" name="limit" value="10" min="1" max="100"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105">
+                            Search Leads
+                        </button>
+                    </form>
+
+                    <div id="loading" class="hidden mt-4 text-blue-600 font-medium">
+                            Searching for leads...
+                    </div>
+
+                    <!-- Results Section -->
+                    <div id="results-section" class="mt-8 hidden">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Search Results</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profile</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results-tbody" class="bg-white divide-y divide-gray-200">
+                                    <!-- Results will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Drawer functionality
+        const leadgenCard = document.getElementById('leadgen-card');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const drawerPanel = document.getElementById('drawer-panel');
+        const closeDrawer = document.getElementById('close-drawer');
+        const leadgenForm = document.getElementById('leadgen-form');
+        const resultsSection = document.getElementById('results-section');
+        const resultsTbody = document.getElementById('results-tbody');
+
+        // Open drawer
+        leadgenCard.addEventListener('click', () => {
+            drawerOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                drawerPanel.classList.remove('drawer-enter');
+                drawerPanel.classList.add('drawer-enter-active');
+            }, 10);
+        });
+
+        // Close drawer
+        function closeDrawerPanel() {
+            drawerPanel.classList.remove('drawer-enter-active');
+            drawerPanel.classList.add('drawer-exit-active');
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+                drawerPanel.classList.remove('drawer-exit-active');
+                drawerPanel.classList.add('drawer-enter');
+            }, 300);
+        }
+
+        closeDrawer.addEventListener('click', closeDrawerPanel);
+        drawerOverlay.addEventListener('click', (e) => {
+            if (e.target === drawerOverlay) {
+                closeDrawerPanel();
+            }
+        });
+
+        // Form submission
+        leadgenForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(leadgenForm);
+    const industry = formData.get('industry');
+    const location = formData.get('location');
+    const role = formData.get('role');
+    const limit = parseInt(formData.get('limit'));
+    const token = localStorage.getItem("token");
+
+    // Show loading
+    resultsSection.classList.add('hidden');
+    resultsTbody.innerHTML = '<tr><td colspan="5" class="px-4 py-3 text-center text-blue-600">Searching...</td></tr>';
+
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/leadsearch?industry=${industry}&location=${location}&role_hint=${role}&limit=${limit}`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        if (!response.ok) throw new Error("Search failed");
+
+        const data = await response.json();
+        displayResults(data.results);
+    } catch (err) {
+        console.error("Error fetching leads:", err);
+        resultsTbody.innerHTML = '<tr><td colspan="5" class="px-4 py-3 text-center text-red-600">Error fetching results. Try again.</td></tr>';
+    }
+});
+
+       
+
+    function displayResults(results) {
+    resultsTbody.innerHTML = '';
+
+    results.forEach(lead => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-gray-50';
+        row.innerHTML = `
+            <td class="px-4 py-3 text-sm text-gray-900">${lead.first_name || ""}</td>
+            <td class="px-4 py-3 text-sm text-gray-900">${lead.last_name || ""}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${lead.role || ""}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${lead.company || ""}</td>
+            <td class="px-4 py-3 text-sm">
+                <a href="${lead.profile_url}" target="_blank" class="text-blue-600 hover:text-blue-800 underline">
+                    View Profile
+                </a>
+            </td>
+        `;
+        resultsTbody.appendChild(row);
+    });
+
+    resultsSection.classList.remove('hidden');
+}
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !drawerOverlay.classList.contains('hidden')) {
+                closeDrawerPanel();
+            }
+        });
+
+        document.getElementById("leadgen-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const industry = document.getElementById("industry").value;
+    const location = document.getElementById("location").value;
+    const role = document.getElementById("role").value;
+    const limit = document.getElementById("limit").value;
+    const token = localStorage.getItem("token");
+
+    // Show loading
+    document.getElementById("loading").classList.remove("hidden");
+    document.getElementById("results-section").classList.add("hidden");
+
+   try {
+    const response = await fetch(`http://127.0.0.1:8000/leadsearch?industry=${industry}&location=${location}&role_hint=${role}&limit=${limit}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    displayResults(data.results);
+
+} catch (err) {
+    console.error("Error fetching leads:", err);
+    alert("Something went wrong while searching. Please try again.");
+} finally {
+    document.getElementById("loading").classList.add("hidden");
+}});
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980d0054d36fbca7',t:'MTc1ODE1ODIyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+
+
+</html>

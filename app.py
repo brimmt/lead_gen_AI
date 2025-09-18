@@ -83,12 +83,16 @@ limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
 
 #Login Code Section  <- Remeber to update and pull from actual database
+
 @app.post("/login")
-def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    if form_data.username != fake_user["username"] or form_data.password != fake_user["password"]:
+def login(username: str = Form(...), password: str = Form(...)):
+    if username != fake_user["username"] or password != fake_user["password"]:
         raise HTTPException(status_code=401, detail="Invalid credentials")
-    
-    access_token = create_access_token(data={"sub": form_data.username}, expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+
+    access_token = create_access_token(
+        data={"sub": username},
+        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    )
     return {"access_token": access_token, "token_type": "bearer"}
 
 @app.get("/me")

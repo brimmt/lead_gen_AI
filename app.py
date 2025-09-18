@@ -86,6 +86,7 @@ app.state.limiter = limiter
 
 @app.post("/login")
 def login(username: str = Form(...), password: str = Form(...)):
+    print(f"Got username={username}, password={password}")  # 👈 debug
     if username != fake_user["username"] or password != fake_user["password"]:
         raise HTTPException(status_code=401, detail="Invalid credentials")
 

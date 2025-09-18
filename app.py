@@ -72,7 +72,8 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "http://localhost:5500",
-        "https://lead-gen-ai-frontend-omega.vercel.app"
+        "https://lead-gen-ai-frontend-omega.vercel.app",
+        "https://lead-gen-ai-frontend-pmb3-idb113y4m-tatiana-brimms-projects.vercel.app/"
     ],  # frontend URL
     allow_credentials=True,
     allow_methods=["*"],
